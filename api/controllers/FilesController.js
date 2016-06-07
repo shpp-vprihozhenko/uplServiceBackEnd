@@ -9,9 +9,12 @@ module.exports = {
 
   index: function (req,res){
 
+    var path = req.get("host");
+    console.log("path", path);
+
     res.writeHead(200, {'content-type': 'text/html'});
     res.end(
-      '<form action="http://localhost:1337/files/upload" enctype="multipart/form-data" method="post">'+
+      '<form action="http://'+path+'files/upload" enctype="multipart/form-data" method="post">'+
       '<input type="text" name="username"><br>'+
       '<input type="file" name="anyfile" multiple="multiple"><br>'+
       '<input type="submit" value="Upload">'+
